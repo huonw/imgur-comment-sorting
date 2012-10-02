@@ -1,0 +1,72 @@
+<h1>Imgur comment sorting</h1>
+<p>This is a mirror of some of the images and comments
+on <a href="http://imgur.com/gallery">the Imgur gallery</a>, for
+experimentating with how the comments are sorted. To actually see the
+images go to the <a href="gallery">gallery</a> and have a look at the
+new order.</p>
+
+<h2>Why?</h2>
+<p>Recently there was a big furor about "the imgur extension" which
+allowed some people to post captions really quickly. This highlighted
+the deficiencies in the comment ordering system, so a new algorithm is
+needed.</p>
+
+<p>One result of this new algorithm is that comments which are posted
+first don't get such a large advantage over comments posted
+later. It's not perfect, but it's much better.</p>
+
+<p>It also means that spammers can be killed
+(e.g.  <a href="gallery/QDlkP.html#cap_6961054">this spam</a>), and
+unoriginal boring crap gets pushed down lower
+(e.g. <a href="gallery/QDlkP.html#cap_6958449">this pedantic spelling
+correction</a>).</p>
+
+
+<h2>About</h2>
+<p> The new sorting method
+is <a href="http://www.evanmiller.org/how-not-to-sort-by-average-rating.html">this
+algorithm</a>. The equation looks complicated but it is actually this
+simple (in Python):
+<code><pre>
+z = 1.96 # the 2.5% quantile of the normal distribution.
+
+def score(upvotes, downvotes):
+    n = upvotes + downvotes
+    if n == 0:
+        return 0
+
+    p = float(upvotes) / n
+
+    return (p + z**2 / (2*n) - z * sqrt((p*(1-p) + z**2 / (4*n)) / n)) / (1 + z**2/n)
+</pre></code>
+</p>
+
+<p>It basically predicts the ratio of upvotes to downvotes each
+comment would get if all the comments got the same number of (up or
+down) votes.</p>
+
+<h2>Site details</h2>
+<p>On every comment there are 2 numbers, one in italics, one in
+bold.<p>
+
+<p>The number in italics is the score imgur currently uses to compute
+the points (just the number of upvotes minus the number of downvotes),
+hovering over it gives the breakdown.</p>
+
+<p>The number in bold is the score as computed by the algorithm. It is
+always less than 1, and the larger it is, the better. (Clearly, this
+score doesn't have to be visible on the comment, e.g. like it is on
+reddit.)</p>
+
+<p>This uses <a href="http://api.imgur.com/">the imgur API</a> to
+retrieve the information about the gallery, and only does it when I
+tell it to. i.e. it isn't live updating (it doesn't need to be, since
+it is just showcasing the comment sorting). Also, you can't up- or
+downvote, nor can you comment.</p>
+
+<p>Also, the important bit is the comment order. Not the page layout
+or the styling or anything like that. This is only a showcase for
+comment sorting.</p>
+
+<hr>
+<small>Created by dbaupp</small>

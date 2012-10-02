@@ -1,0 +1,114 @@
+
+a, a:visited {
+    color: lightgrey;
+}
+
+html {
+    background: black;
+    color: white;
+}
+
+.gallery-image {
+    margin: 2px;
+    padding: 0;
+}
+
+#header {
+    font-size: 1.1em;
+}
+
+#header div {
+    display: inline-block;
+    padding: 10px;
+}
+
+#image-title {
+}
+
+#wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+#image {
+    max-width: 600px;
+    max-height: 600px;
+    margin: 0 auto;
+    display: block;
+}
+
+.image-arrow, .image-arrow:visited {
+    font-size: 1em;
+    background: #ddd;
+    padding: 10px;
+    border: 4px #aaa solid;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+}
+
+
+#image-prev {
+    float: left;
+}
+#image-next {
+    float: right;
+}
+
+.cap-wrapper {
+    margin-left: 10px;
+    padding: 2px 0;
+}
+
+.cap-expander {
+    cursor: pointer;
+    display: inline-block;
+    width: 2em;
+    font-family: monospace;
+}
+
+.cap-children {
+    border-left: 1px solid grey;
+    display: none;
+}
+
+.cap-children.show {
+    display:block;
+}
+
+.cap-body {
+    background: #333;
+    padding: 2px;
+}
+
+.cap-head span {
+    padding: 0.2em;
+}
+
+.cap-author a, .cap-author a:visited {
+    color: #66A;
+}
+
+.cap-score {
+    color: #DDD;
+    font-weight: bold;
+}
+.cap-points {
+    color: #DDD;
+    font-style: italic;
+}
+
+.cap-points-breakdown {
+    display: none;
+    font-size: 0.8em;
+}
+.cap-points:hover .cap-points-breakdown {
+    display: inline;
+}
+
+.cap-points-ups {
+    color: #4A4;
+}
+.cap-points-downs {
+    color: #A44;
+}
