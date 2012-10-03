@@ -26,7 +26,12 @@ def score(ups, downs, z=z_quant):
 
     p = ups / n
     z2_n = z**2 / n
-    return (p + z2_n / 2 - z * sqrt((p*(1-p) + z2_n / 4) / n)) / (1 + z2_n)
+    try:
+        return (p + z2_n / 2 - z * sqrt((p*(1-p) + z2_n / 4) / n)) / (1 + z2_n)
+    except ValueError as e:
+        print('Error with maths: %s (p = %f, n = %d, ups = %d, downs = %d)' % (e, p, n, ups, downs),
+              file=sys.stderr)
+        return 0
 
 GALLERY_URL = 'http://imgur.com/gallery/page/{page_no:d}.json'
 IMAGE_URL = 'http://imgur.com/gallery/{hash:s}.json'
