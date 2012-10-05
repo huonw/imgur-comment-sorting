@@ -1,4 +1,4 @@
-<h1>Imgur comment sorting</h1>
+
 <p>This is a mirror of some of the images and comments
 on <a href="http://imgur.com/gallery">the Imgur gallery</a>, for
 experimentating with how the comments are sorted. To actually see the
@@ -50,16 +50,17 @@ down) votes.</p>
 
 <h2>Site details</h2>
 <p>On every comment there are 2 numbers, one in italics, one in
-bold.<p>
+bold.</p>
+<ul>
+  <li>The integer in italics is the score imgur currently uses to
+    compute the points (just the number of upvotes minus the number of
+    downvotes), hovering over it gives the breakdown.</li>
+  <li>The decimal in bold is the score as computed by the
+    algorithm. It is always less than 1, and the larger it is, the
+    better. (Clearly, this score doesn't have to be visible on the
+    comment, e.g. like it is on reddit.)</li>
+</ul>
 
-<p>The number in italics is the score imgur currently uses to compute
-the points (just the number of upvotes minus the number of downvotes),
-hovering over it gives the breakdown.</p>
-
-<p>The number in bold is the score as computed by the algorithm. It is
-always less than 1, and the larger it is, the better. (Clearly, this
-score doesn't have to be visible on the comment, e.g. like it is on
-reddit.)</p>
 
 <p>This uses <a href="http://api.imgur.com/">the imgur API</a> to
 retrieve the information about the gallery, and only does it when I
@@ -71,8 +72,8 @@ downvote, nor can you comment.</p>
 or the styling or anything like that. This is only a showcase for
 comment sorting.</p>
 
-<p><a href="https://github.com/dbaupp/imgur-comment-sorting">The
-source code</a> is available on GitHub.
+<p><strong><a href="https://github.com/dbaupp/imgur-comment-sorting">The
+source code</a> is available on GitHub.</strong></p>
 
 
 <hr>
