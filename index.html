@@ -1,4 +1,4 @@
-<!DOCTYPE html><html ><head ><title >About - Imgur comment sorting</title><link href="style.css" rel="stylesheet"></link><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script><script src="script.js" type="text/javascript"></script></head><body ><div id="wrapper"><div id="header"><div id="gallery-link"><a href="gallery">Gallery</a></div><div id="about-link"><a href="index.html">About</a></div></div><h1>Imgur comment sorting</h1>
+<!DOCTYPE html><html ><head ><title >About - Imgur comment sorting</title><link href="style.css" rel="stylesheet"></link><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js" type="text/javascript"></script><script src="script.js" type="text/javascript"></script></head><body ><div id="wrapper"><div id="header"><div id="gallery-link"><a href="gallery">Gallery</a></div><div id="about-link"><a href="index.html">About</a></div></div><h1 id="page-title">Imgur comment sorting</h1>
 <p>This is a mirror of some of the images and comments
 on <a href="http://imgur.com/gallery">the Imgur gallery</a>, for
 experimentating with how the comments are sorted. To actually see the
@@ -18,9 +18,9 @@ with me...).</p>
 first don't get such a large advantage over comments posted
 later. It's not perfect, but it's much better.</p>
 
-<p>It also means that spammers can be killed
-(e.g.  <a href="gallery/QDlkP.html#cap_6961054">this spam</a>), and
-unoriginal boring crap gets pushed down lower
+<p>It also means that spammers can be pushed lower (can't give an
+example, it gets deleted too quickly, but trust me on this one), and
+unoriginal boring crap doesn't appear so high
 (e.g. <a href="gallery/QDlkP.html#cap_6958449">this pedantic spelling
 correction</a>).</p>
 
@@ -50,16 +50,17 @@ down) votes.</p>
 
 <h2>Site details</h2>
 <p>On every comment there are 2 numbers, one in italics, one in
-bold.<p>
+bold.</p>
+<ul>
+  <li>The integer in italics is the score imgur currently uses to
+    compute the points (just the number of upvotes minus the number of
+    downvotes), hovering over it gives the breakdown.</li>
+  <li>The decimal in bold is the score as computed by the
+    algorithm. It is always less than 1, and the larger it is, the
+    better. (Clearly, this score doesn't have to be visible on the
+    comment, e.g. like it is on reddit.)</li>
+</ul>
 
-<p>The number in italics is the score imgur currently uses to compute
-the points (just the number of upvotes minus the number of downvotes),
-hovering over it gives the breakdown.</p>
-
-<p>The number in bold is the score as computed by the algorithm. It is
-always less than 1, and the larger it is, the better. (Clearly, this
-score doesn't have to be visible on the comment, e.g. like it is on
-reddit.)</p>
 
 <p>This uses <a href="http://api.imgur.com/">the imgur API</a> to
 retrieve the information about the gallery, and only does it when I
@@ -71,9 +72,18 @@ downvote, nor can you comment.</p>
 or the styling or anything like that. This is only a showcase for
 comment sorting.</p>
 
-<p><a href="https://github.com/dbaupp/imgur-comment-sorting">The
-source code</a> is available on GitHub.
+<p>Lastly, the examples here aren't 100% reflective of what would
+happen in real life. The comments aren't voted on while scored by this
+method, and the ordering influences votes, so changing the ordering
+will change the votes. e.g. I'm sure many people just look at the top
+few comments, and this scoring system will mean that the top comments
+change as more people vote (this is good: later comments will get a
+better chance to move up further).</p>
 
+<hr>
+
+<p><strong><a href="https://github.com/dbaupp/imgur-comment-sorting">The
+source code</a> is available on GitHub.</strong></p>
 
 <hr>
 <small>Created by dbaupp</small>
