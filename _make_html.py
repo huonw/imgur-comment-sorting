@@ -136,6 +136,8 @@ def page(title, is_in_folder, *text):
                             a(prefix + 'gallery', {}, 'Gallery')),
                         div({'id': 'about-link'},
                             a(prefix + 'index.html', {}, 'About'))),
+                    tag('h1', {'id': 'page-title'},
+                        "Imgur comment sorting"),
                     *text),
                 page_suffix))
 
@@ -144,7 +146,7 @@ def page(title, is_in_folder, *text):
 # page with an image and comments
 def image_page(img, prev=None, next=None):
     return page(img['title'], True,
-                tag('h1', {'id': 'image-title'},
+                tag('h2', {'id': 'image-title'},
                     img['title']),
                 image(img, prev, next),
                 div({'id': 'captions'},
@@ -153,7 +155,7 @@ def image_page(img, prev=None, next=None):
 # page with a large number of thumbnails
 def gallery_page(imgs):
     return page('Gallery', True,
-                tag('h1', {'id': 'gallery-title'}, 'Gallery'),
+                tag('h2', {'id': 'gallery-title'}, 'Gallery'),
                 div({'id': 'gallery-list'},
                     *[a('%s.html' % img['hash'], {},
                         tag('img',
