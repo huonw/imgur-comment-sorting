@@ -1,3 +1,4 @@
+
 *.py[co]
 
 # Packages
@@ -25,3 +26,8 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+
+output.json
+_site
+
